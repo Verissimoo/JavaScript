@@ -1,0 +1,115 @@
+NODE
+- Uma ferramenta para criar e simplificar aplicações do Js na web.
+- Suporta muito mais conexões simultaneas, sem depender da memoria da maquina.
+- Node executa o codigo via terminal.
+- O node pode ser codado pelo terminal.
+
+NPM
+- Gerenciador de pacotes do Node.
+- Ferramentas des de matematica ate comunicação HTTP
+- Para instalar: npm install 'pacote'.
+- Express é um pacote por exemplo
+
+CRIANDO UM PROJETO
+- Digite (npm init) no terminal para configurar seu projeto criando a pasta JSON
+- Package json = configura e salva as dependencias do projeto, mostrando versao, nome,
+arquivos e bibliotecas no projeto (dependencias)
+
+MODULO DE FILE SYSTEM
+-Ja incluso no node
+-Declara a função do pacote em uma variavel
+- require = usado para puxar qual biblioteca sera utilizada
+-File system = le arquivos ou escreve em arquivos
+- Formato para utilizar os modulos: (leitura)
+  - argumento 1 = arquivo a ser lido
+  - argumento 2 = tipo do arquivo
+  - argumento 3= arrow function dizendo oq fazer em 2 casos;
+
+let {readFile} = require('fs');
+
+readFile("arquivo.txt", "utf8", (error, texto) =>{
+    if(error){
+        throw error;
+    } else {
+        console.log(texto)
+    }
+});
+
+- Formato para utilizar os modulos: (escrita)
+  - argumento 1 = arquivo a ser alterado
+  - argumento 2 = o que alterar no arquivo
+  - argumento 3= arrow function dizendo oq fazer em caso de erro;
+
+let {writeFile} = require('fs');
+
+writeFile("arquivo.txt", "salveeeee", (error) =>{
+    if(error){
+        throw error;
+    } else {
+        console.log("escreveu com sucesso")
+    }
+})
+
+MODULO HTTP
+- Principal para web
+- Simula um pequeno servidor web
+- Formato para utilizar o modulo HTTP
+  - uma arrow function com uma aquisição e uma resposta (request, reponse);
+  - response.writeHead = serve para dizer qual tipo de arquvio sera lido
+  - response.write = oque sera escrito
+  - response.end = somente para finalizar
+  - server.listen = para declarar o local do site no host
+
+const {createServer} = require("http");
+
+let server = createServer((request, response)=>{
+    response.writeHead(200,{"Content-Type": "text/html"}) 
+    response.write( `
+    <h1>Hello World </h1>
+    <p>Primeira pagina com node</p>
+    `);
+    response.end()
+
+})
+server.listen(8000);
+console.log("Ouvindo a porta 8000");
+
+
+API
+- A biblioteca Express que cria as APIs
+- É basicamente uma maneira de se comunicar via http com o
+servidor e fazer ações como:
+  - vizualizar
+  - deletar
+  - criar
+  - cadastrar
+  - atualizar dados
+  - etc
+- Faz a ligação do front, do back e do banco de dados
+- Rest = uma serie de regras para padronizar a forma que é feita as API (restful)
+- Verbos HTTP
+  - GET = Solicitar dados
+  - POST = Inserir dados
+  - DELETE = Deletar dados
+  - PUT = Atualizar dados
+- Rotas = Urls diferentes acessadas pelos metodos HTTP.
+  - Criando uma rota (api) com Express:
+
+      let express = require('express');
+      let app = express();
+
+      app.get('/', function(req, res) {
+          res.send('primeira rota com express');
+      });
+      app.listen(3000, function(){
+          console.log('esta funcionando')
+      });
+-Postman = melhor software para testar APIs
+
+
+ 
+
+
+
+
+

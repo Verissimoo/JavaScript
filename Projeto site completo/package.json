@@ -1,0 +1,28 @@
+{
+  "name": "dev_jobs",
+  "version": "1.0.0",
+  "description": "Um site para programadores procurarem trabalhos e empresas cadastrarem vagas",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "dev",
+    "jobs",
+    "dev",
+    "oportunity"
+  ],
+  "author": "Verissimo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "bootstrap": "^5.2.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "sequelize": "^6.28.0",
+    "sqlite3": "^5.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
